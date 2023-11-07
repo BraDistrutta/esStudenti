@@ -1,0 +1,16 @@
+<div class="card-body" *ngIf="listaStudenti.length != 0 && classeCard == classeClick">
+  <div class="card" *ngFor="let studente of listaStudenti">
+    <div class="card-body">
+      <h3 class="card-title"><b>{{studente.nome}}</b></h3>
+      <p class="card-text"><b>Residenza:&nbsp;</b>{{studente.residenza}}</p>
+      <p class="card-text"><b>Data di Nascita:&nbsp;</b>{{studente.dob}}</p>
+      <p class="card-text"><b>Genere:&nbsp;</b>{{(studente.genere == "M") ? "Maschio" : "Femmina"}}</p>
+      <p class="card-text"><b>Mail:&nbsp;</b>{{studente.mail}}</p>
+      <p class="card-text"><b>Password:&nbsp;</b>{{studente.pwd}}</p>
+      <p class="card-text"><b>Premi:&nbsp;</b>{{studente.premi}}</p>
+      <h5 class="card-subtitle">Sports:</h5>
+      <p class="card-text" *ngFor="let sport of studente.sports">- {{sport}}</p>
+    </div>
+  </div>
+  <button class="btn btn-light btn-outline-secondary" (click)="inviaPremi(listaStudenti)">Calcola Premi</button>
+</div>

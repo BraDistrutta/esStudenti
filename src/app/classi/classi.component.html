@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <h3>Classi</h3>
+  <div class="card-group">
+    <div class="card" *ngFor="let c of classi | keyvalue" (click)="showClasse(c.key)">
+      <div class="card-title" [id]="c.key">
+        <h4>{{c.key}}</h4>
+      </div>
+      <studenti [listaStudenti]="vet" [classeCard]="c.key" [classeClick]="classe" (sendPremi)="calcolaPremi($event)">
+
+      </studenti>
+      <div class="card-footer" *ngIf="nPremi != 0 && c.key == classe">
+        <p class="card-text"><b>Premi Classe:&nbsp;</b>{{nPremi}}</p>
+      </div>
+    </div>
+  </div>
+</div>
